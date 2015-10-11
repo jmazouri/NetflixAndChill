@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html ng-app="ncApp">
+
+<head>
+	<title>Netflix and Chill</title>
+    <link rel="stylesheet" href="Content/vendor/foundation.min.css" />
+    <script src="Content/vendor/modernizr.js"></script>
+    <link href="Content/style.css" type="text/css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.js"></script>
+    <script src="Content/vendor/underscore.min.js"></script>
+    <script src="Content/vendor/restangular.min.js"></script>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <h1>Come On, Bae</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-4 columns" ng-controller="MovieList">
+
+            <ul>
+                <li ng-repeat="movie in movies">
+                    <span>{{movie.Name}}</span>
+                    <p>{{movie.Description}}</p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <script src="Content/vendor/jquery.js"></script>
+    <script src="Content/vendor/foundation.min.js"></script>
+
+    <script src="Content/main.js"></script>
+</body>
+</html>
