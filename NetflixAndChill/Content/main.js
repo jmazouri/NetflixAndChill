@@ -18,7 +18,14 @@ mainModule.controller('MovieList', function ($scope, $timeout, Restangular)
     updateScope = function ()
     {
         //console.log("There was an update!");
-        $scope.movies = Restangular.all("movies").getList().$object;
+        Restangular.all("movies").getList().then(function (response) {
+            $(".connection-lost").addClass("hidden");
+            $scope.movies = response;
+        }, function ()
+        {
+            $(".connection-lost").removeClass("hidden");
+            $("#maincontent").addClass("hidden");
+        });
 
         /*
         var proper = [];

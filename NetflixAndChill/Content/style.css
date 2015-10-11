@@ -5,3 +5,7 @@
     color: white !important;
 }
 */
+
+.hidden {
+    display: none;
+}

@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace NetflixAndChill
 {
+    public enum MediaType
+    {
+        Movie = 0,
+        TvShow = 1
+    }
+
     public class Movie
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Show_Title { get; set; }
+        public string Summary { get; set; }
 
-        public static List<Movie> TestMovies
-        {
-            get
-            {
-                List<Movie> ret = new List<Movie>();
+        public int Show_Id { get; set; }
 
-                ret.Add(new Movie { Name = "Descent", Description = "People go into a cave or some shit" });
-                ret.Add(new Movie { Name = "Cube", Description = "People go into a cube or some shit" });
-                ret.Add(new Movie { Name = "Saw", Description = "People go get cut up or some shit" });
-                ret.Add(new Movie { Name = "Unfriended", Description = "People go on Facebook or some shit" });
+        public int Release_Year { get; set; }
+        public decimal Rating { get; set; }
+        public string Category { get; set; }
+        public string Show_Cast { get; set; }
+        public string Director { get; set; }
 
-                return ret;
-            }
-        }
+        public MediaType MediaType { get; set; }
+        public string Runtime { get; set; }
     }
 }

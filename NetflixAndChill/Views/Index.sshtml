@@ -21,13 +21,21 @@
         </div>
     </div>
 
-    <div class="row">
+	<div class="row">
+		<div data-alert class="large-9 large-centered columns alert-box connection-lost alert">
+			Lost connection to server.
+			<a href="#" class="close">&times;</a>
+		</div>
+	</div>
+
+    <div class="row" id="maincontent">
+
         <div class="large-4 columns" ng-controller="MovieList">
 
             <ul>
                 <li ng-repeat="movie in movies">
-                    <span>{{movie.Name}}</span>
-                    <p>{{movie.Description}}</p>
+                    <span>{{movie.Show_Title}}</span>
+                    <p>{{movie.Summary}}</p>
                 </li>
             </ul>
 
