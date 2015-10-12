@@ -7,26 +7,19 @@ using Newtonsoft.Json;
 
 namespace NetflixAndChill
 {
-    public enum MediaType
-    {
-        Movie = 0,
-        TvShow = 1
-    }
-
     public class Movie
     {
-        public string Show_Title { get; set; }
-        public string Summary { get; set; }
+        public bool Adult { get; set; }
+        public string Backdrop_Path { get; set; }
+        public int[] Genre_Ids { get; set; }
+        public int Id { get; set; }
 
-        public int Show_Id { get; set; }
-
-        public int Release_Year { get; set; }
-        public decimal Rating { get; set; }
-        public string Category { get; set; }
-        public string Show_Cast { get; set; }
-        public string Director { get; set; }
-
-        public MediaType MediaType { get; set; }
-        public string Runtime { get; set; }
+        public string Overview { get; set; }
+        public string Release_Date { get; set; }
+        public string Poster_Path { get; set; }
+        public float Popularity { get; set; }
+        public string Title { get; set; }
+        public float Vote_Average { get; set; }
+        public int Vote_Count { get; set; }
     }
 }

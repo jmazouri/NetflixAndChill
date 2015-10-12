@@ -1,20 +1,9 @@
 ﻿$(document).foundation();
 
-var replaceItemById = function (list, element) {
-    var index = _.indexOf(list, _.find(list, { id: element.id }));
-
-    list.splice(index, 1, element);
-
-    return list;
-};
-
-_.mixin({ 'replaceItemById': replaceItemById });
-
 var mainModule = angular.module('ncApp', ["restangular"]);
 
 mainModule.controller('MovieList', function ($scope, $timeout, Restangular)
 {
-
     updateScope = function ()
     {
         //console.log("There was an update!");
