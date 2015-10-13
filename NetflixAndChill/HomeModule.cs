@@ -17,7 +17,7 @@ namespace NetflixAndChill
 
             Get["/currentMovie"] = x =>
             {
-                if (MovieDatabase.CachedMovies.Count == 0) { return null; }
+                if (MovieDatabase.CachedMovies.Count() == 0) { return null; }
                 return JsonConvert.SerializeObject(MovieDatabase.CachedMovies[0]);
             };
             
