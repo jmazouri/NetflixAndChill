@@ -9,3 +9,27 @@
 .hidden {
     display: none;
 }
+
+.moviebox h3
+{
+    color: white;
+}
+
+.moviebox {
+    color: white;
+    display:block;
+    padding:10px 15px 5px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 24px black, 0 0 24px black;
+
+    font-size: 0.75em;
+}
+
+.movielist {
+    list-style-type: none;
+}
+
+.moviebox-container {
+    padding: 0;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}

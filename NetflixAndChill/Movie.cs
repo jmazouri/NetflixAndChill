@@ -19,6 +19,15 @@ namespace NetflixAndChill
         public string Poster_Path { get; set; }
         public float Popularity { get; set; }
         public string Title { get; set; }
+
+        public string BackgroundUrl => MovieDBApi.BackdropBasePath + Backdrop_Path;
+
+        [Obsolete("Please use Title instead")]
+        public string Name
+        {
+            get { return Title; }
+            set { Title = value; }
+        }
         public float Vote_Average { get; set; }
         public int Vote_Count { get; set; }
     }

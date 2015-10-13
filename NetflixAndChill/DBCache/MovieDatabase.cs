@@ -11,39 +11,24 @@ namespace NetflixAndChill
     {
         static LiteDatabase _db = new LiteDatabase("movies.db");
 
-        private static LiteCollection<Movie> MovieCollection
+        private static LiteCollection<Movie> MovieCollection => _db.GetCollection<Movie>("movies");
+
+        public static List<Movie> CachedMovies => MovieCollection.FindAll().ToList();
+
+        public static Movie GetMovieInfo(int id, bool tvShow = false)
         {
-            get
-            {
-                return _db.GetCollection<Movie>("movies");
-            }
-        }
+            Movie found = MovieCollection.FindById(id);
 
-        public static List<Movie> CachedMovies
-        {
-            get
-            {
-                return MovieCollection.FindAll().ToList();
-            }
-        }
+            if (found != null) return found;
+            
+            Movie rouletteMovie = tvShow ? MovieDBApi.GetTVShow(id) : MovieDBApi.GetMovie(id);
 
-        public static Movie GetMovieInfo(string title)
-        { 
-            Movie found = MovieCollection.Find(x => x.Title == title).FirstOrDefault();
+            if (rouletteMovie == null) return null;
 
-            if (found == null)
-            {
-                var rouletteMovie = MovieDBApi.GetMovie(title);
+            MovieCollection.Insert(rouletteMovie);
+            MovieDBApi.DownloadBackdrop(rouletteMovie);
 
-                if (rouletteMovie != null)
-                {
-                    MovieCollection.Insert(rouletteMovie);
-                }
-
-                return rouletteMovie;
-            }
-
-            return found;
+            return rouletteMovie;
         }
     }
 }

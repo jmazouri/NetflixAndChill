@@ -28,11 +28,21 @@ mainModule.controller('MovieList', function ($scope, $timeout, Restangular)
         });
         */
 
-        $timeout(updateScope, 1000);
+        $timeout(updateScope, 30000);
     };
 
     updateScope();
 
+});
+
+mainModule.directive('backImg', function() {
+    return function(scope, element, attrs) {
+        var url = attrs.backImg;
+        element.css({
+            'background-image': 'url(' + url + ')',
+            'background-size': 'cover'
+        });
+    };
 });
 
 mainModule.controller('CurrentMovie', function ($scope, $timeout, Restangular) {
