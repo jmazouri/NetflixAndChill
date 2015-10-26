@@ -4,6 +4,6 @@
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
     </startup>
     <appSettings>
-        <add key="moviedbkey" value="cea42886aa6a8eab8f79a3ec9ca9aa48" />
+        <add key="moviedbkey" value="" />
     </appSettings>
 </configuration>

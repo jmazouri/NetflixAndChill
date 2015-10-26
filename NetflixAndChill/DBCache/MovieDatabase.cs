@@ -15,7 +15,12 @@ namespace NetflixAndChill
 
         public static List<Movie> CachedMovies => MovieCollection.FindAll().ToList();
 
-        public static Movie GetMovieInfo(int id, bool tvShow = false)
+        public static List<Movie> SearchMovies(string title)
+        {
+            return MovieDBApi.SearchMovie(title);
+        } 
+
+        public static Movie GetMovieInfo(long id, bool tvShow = false)
         {
             Movie found = MovieCollection.FindById(id);
 

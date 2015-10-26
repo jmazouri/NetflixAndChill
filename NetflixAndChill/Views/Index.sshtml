@@ -5,12 +5,14 @@
 	<title>Netflix and Chill</title>
     <link rel="stylesheet" href="Content/vendor/foundation.min.css" />
     <script src="Content/vendor/modernizr.js"></script>
+	<link href="Content/vendor/autocomplete.css" type="text/css" rel="stylesheet" />
     <link href="Content/style.css" type="text/css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.js"></script>
     <script src="Content/vendor/underscore.min.js"></script>
     <script src="Content/vendor/restangular.js"></script>
+	<script src="Content/vendor/autocomplete.js"></script>
 </head>
 
 <body>
@@ -32,11 +34,21 @@
 
         <div ng-controller="MovieList" class="large-8 columns">
 
-            <div class="moviebox-container" ng-repeat="movie in movies">
+			<div class="row collapse">
+				<div class="large-10 columns">
+				    <autocomplete placeholder="Suggest a Movie..." click-activation="true" data="movieTitles" on-type="updateMovieSearch"></autocomplete>
+				</div>
+
+				<div class="large-2 columns">
+					<a href="#" class="button postfix">Suggest</a>
+				</div>
+			</div>
+
+            <div class="moviebox-container large-12 columns" ng-repeat="movie in movies">
                 <div back-img="Images/{{movie.Id}}">
                     <span class="moviebox">
                         <h3>{{movie.Title}}</h3>
-                        <p>{{movie.Overview}}</p>
+                        <span>{{movie.Overview}}</span>
                     </span>
                 </div>
             </div>
@@ -49,6 +61,16 @@
 
         </div>
     </div>
+
+	<hr />
+	
+	<div class="row">
+		<div class="large-12 columns">
+			<p>All registered trademarks are property of their respective owners.</p>
+			<p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+			<a href="http://www.themoviedb.org/"><img src="Content/themoviedb.png"></a>
+		</div>
+	</div>
 
     <script src="Content/vendor/jquery.js"></script>
     <script src="Content/vendor/foundation.min.js"></script>

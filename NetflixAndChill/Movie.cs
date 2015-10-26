@@ -12,7 +12,7 @@ namespace NetflixAndChill
         public bool Adult { get; set; }
         public string Backdrop_Path { get; set; }
         public int[] Genre_Ids { get; set; }
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public string Overview { get; set; }
         public string Release_Date { get; set; }

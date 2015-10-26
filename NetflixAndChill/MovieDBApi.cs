@@ -25,7 +25,7 @@ namespace NetflixAndChill
             new WebClient().DownloadFile($"{baseurl}{movie.Backdrop_Path}?api_key={ApiKey}", Path.Combine(BackdropBasePath, movie.Backdrop_Path.Substring(1)));
         }
 
-        public static Movie GetMovie(int id)
+        public static Movie GetMovie(long id)
         {
             string baseUrl = "http://api.themoviedb.org/3/movie";
             string queryURL = $"{baseUrl}/{id}?api_key={ApiKey}";
@@ -42,7 +42,7 @@ namespace NetflixAndChill
             }
         }
 
-        public static Movie GetTVShow(int id)
+        public static Movie GetTVShow(long id)
         {
             string baseUrl = "http://api.themoviedb.org/3/tv";
             string queryURL = $"{baseUrl}/{id}?api_key={ApiKey}";

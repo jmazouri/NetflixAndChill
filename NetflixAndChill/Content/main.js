@@ -1,10 +1,18 @@
 ﻿$(document).foundation();
 
-var mainModule = angular.module('ncApp', ["restangular"]);
+var mainModule = angular.module('ncApp', ["restangular", 'autocomplete']);
 
 mainModule.controller('MovieList', function ($scope, $timeout, Restangular)
 {
-    updateScope = function ()
+    $scope.updateMovieSearch = function (typed)
+    {
+        Restangular.several("search", typed).getList().then(function (response)
+        {
+            $scope.movieTitles = _.uniq(_.pluck(response, 'Title'));
+        });
+    };
+
+    $scope.updateScope = function ()
     {
         //console.log("There was an update!");
         Restangular.all("movies").getList().then(function (response) {
@@ -16,22 +24,10 @@ mainModule.controller('MovieList', function ($scope, $timeout, Restangular)
             $("#maincontent").addClass("hidden");
         });
 
-        /*
-        var proper = [];
-
-        _.each(Restangular.all("movies").getList(), function (item)
-        {
-            if (_.where($scope.movies, { id: item.id }))
-            {
-                
-            }
-        });
-        */
-
-        $timeout(updateScope, 30000);
+        $timeout($scope.updateScope, 30000);
     };
 
-    updateScope();
+    $scope.updateScope();
 
 });
 
