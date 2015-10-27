@@ -11,7 +11,7 @@ namespace NetflixAndChill
     {
         public bool Adult { get; set; }
         public string Backdrop_Path { get; set; }
-        public int[] Genre_Ids { get; set; }
+        public long[] Genre_Ids { get; set; }
         public long Id { get; set; }
 
         public string Overview { get; set; }
@@ -29,6 +29,6 @@ namespace NetflixAndChill
             set { Title = value; }
         }
         public float Vote_Average { get; set; }
-        public int Vote_Count { get; set; }
+        public long Vote_Count { get; set; }
     }
 }

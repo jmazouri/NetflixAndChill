@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Session.cs" />
+    <Compile Include="App\SessionManager.cs" />
+    <Compile Include="App\User.cs" />
     <Compile Include="DBCache\MovieDatabase.cs" />
     <Compile Include="HomeModule.cs" />
     <Compile Include="Movie.cs" />

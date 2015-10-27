@@ -66,9 +66,13 @@
 	
 	<div class="row">
 		<div class="large-12 columns">
-			<p>All registered trademarks are property of their respective owners.</p>
-			<p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-			<a href="http://www.themoviedb.org/"><img src="Content/themoviedb.png"></a>
+			<div class="large-10 columns">
+                <p>All registered trademarks are property of their respective owners.</p>
+			    <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+            </div>
+            <div class="large-2 columns">
+                <a href="http://www.themoviedb.org/"><img src="Content/themoviedb.png"></a>
+            </div>
 		</div>
 	</div>
 
